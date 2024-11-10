@@ -1,0 +1,3 @@
+-   
+- Hoisting: Hoisting là một cơ chế JavaScript trong đó các biến và khai báo hàm được 
+chuyển lên đầu phạm vi của chúng trước khi thực thi mã.
