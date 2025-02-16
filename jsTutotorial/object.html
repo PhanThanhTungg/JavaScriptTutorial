@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const sampleObject = {
+      name:"tung",
+      "first-name":"phan",
+      age: 18,
+      a1: NaN,
+      sum: (a,b)=>{
+        console.log(a+b);
+      }
+    }
+    console.log(sampleObject);
+
+    //truy xuat
+    console.log(sampleObject.name, sampleObject["first-name"]);
+
+    //thay doi value
+    sampleObject.name="tungnew";sampleObject["first-name"]="phannew";
+    sampleObject.newKey = "newValue";
+    console.log(sampleObject);
+
+    //xoa key
+    delete sampleObject.a1;
+    console.log(sampleObject);
+
+    //for-in
+    for(const key in sampleObject){
+      console.log(key, sampleObject[key]);
+    }
+
+    //Object.keys, Object.values, Object.entries
+    console.log(Object.keys(sampleObject)); //=>list key
+    console.log(Object.values(sampleObject)); //=>list values
+    console.log(Object.entries(sampleObject)); //==> nested list
+
+    //merge objects
+    const object1 = {name:"object1"};
+    const object2 = {age:18};
+    const object3 = {tmp: 1};
+    const object4 = Object.assign(object1,object2,object3);
+    const object5 = {...object1, ...object2, ...object3};
+    console.log(object4);
+    console.log(object5);
+
+    //Object.freeze: dong bang toan bo, ko them sua xoa duoc
+    const objectFreeze = {
+      number: 1
+    }
+    const objectFreeze2 = Object.freeze(objectFreeze);
+    objectFreeze2.number = 2;
+    objectFreeze.number = 2;
+    console.log(objectFreeze);
+    console.log(objectFreeze2);
+
+    //Object.seal: sua duoc nhung khong them duoc
+    const ObjectSeal = {
+      number: 1
+    }
+    Object.seal(ObjectSeal);
+    ObjectSeal.number = 2;
+    ObjectSeal.new = 2;
+    console.log(ObjectSeal);
+
+    //sao chep
+    //--spread operator
+    const iniObject = {
+      hoTen:{
+        ho:"phan",
+        ten:{
+          tenThat:"tung",
+          nickName:"nickName"
+        }
+      },
+      tuoi: 12
+    }
+    const copyObject1 = {...iniObject};
+    copyObject1.hoTen.ho = "phanNew";
+    console.log(iniObject);
+    const copyObject2 = JSON.parse(JSON.stringify(iniObject));
+    copyObject2.hoTen.ten.tenThat = "tungNew";
+    console.log(iniObject);
+
+    // this trong object: tro den object gan nhat
+    const thisObject = {
+      name:"tung",
+      helloF: function(){ // từ khóa this không dùng được trong arrow function
+        console.log(`my name is ${this.name}`);
+        console.log(this);
+      },
+      hoTen:{
+        ho:"phan",
+        ten:{
+          tenThat:"tung",
+          nickName:"nickName"
+        },
+        checkThis: function(){
+          console.log(this);
+        }
+      }
+    }
+    thisObject.helloF();
+    thisObject.hoTen.checkThis();
+
+    //optional chaining
+    const ob = {
+      id: "1",
+      // fullName:{
+      //   lastName:"phan",
+      //   firstName:"tung"
+      // }
+    }
+    console.log(ob.fullName);
+    // console.log(ob.fullName.lastName);
+    console.log(ob.fullName?.lastName);
+
+    //destructering object
+    const desObject = {
+      firstName : "Phan",
+      lastName: "Tung",
+      middleName: "Thanh",
+      age: 18
+    }
+    const {firstName,lastName,...rest} = desObject;
+    console.log(firstName,lastName);
+    console.log(rest);
+
+
+  </script>
+</body>
+</html>

@@ -14,26 +14,26 @@
 // console.log(ob)
 
 //----------------interface---------------
-  // interface social{
-  //   facebook?:string,
-  //   zalo?:string
-  // }
+  interface social{
+    facebook?:string,
+    zalo?:string
+  }
 
-  // interface user{
-  //   name: string,
-  //   class: string,
-  //   age?: number //optional
-  //   social?: social
-  // }
+  interface user{
+    name: string,
+    class: string,
+    age?: number //optional
+    social?: social
+  }
 
-  // let oba:user ={
-  //   name:"tung",
-  //   class:"cn07",
-  //   social:{
-  //     facebook:"tung.com"
-  //   }
-  // }
-  // console.log(oba)
+  let oba:user ={
+    name:"tung",
+    class:"cn07",
+    social:{
+      facebook:"tung.com"
+    }
+  }
+  console.log(oba)
 
 // ----------------extend interface---------------
   // interface account{

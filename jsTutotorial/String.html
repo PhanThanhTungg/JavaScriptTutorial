@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //-----------------------------
+    const str1 = "double quotes";
+    const str2 = "single quotes";
+    const str3 = "backticks";
+
+    //-----------------------------
+    console.log(typeof str1);
+    console.log( `
+      ${str1} + and ${str2}
+      ${str3}
+    `)
+    console.log(str1.charAt(1));
+    console.log(str1.length);
+    console.log(str1.split(" "));
+    console.log(str1.toLowerCase());
+    console.log(str1.toUpperCase());
+    console.log(str1.startsWith("doub"));
+    console.log(str1.endsWith("est"));
+    console.log(str1.includes("ble"));
+    console.log(str1.indexOf("o")); // first
+    console.log(str1.lastIndexOf("o"));
+    console.log(str1.replace("o", "new")); //first
+    console.log(str1.replaceAll("o", "new"));
+    console.log(str1.repeat(3));
+    console.log(str1.slice(0,-1));
+    console.log(str1.trim());
+    console.log(str1.trimStart());
+    console.log(str1.trimEnd());
+
+    //-----------------------------
+    //substring, substr, slice
+    console.log(str1.substring(1,3)); // 1->2
+    console.log(str1.slice(1,3)); // 1->2
+    console.log(str1.substr(1,3)); // lấy 3 kí tự bắt đầu từ i = 1
+
+    //String()---------------
+    //Chuyển hết thành String kể cả null, NaN, undefined
+    
+
+  </script>
+</body>
+</html>

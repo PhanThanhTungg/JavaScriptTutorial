@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const now = new Date();
+    console.log(now);// Sat Feb 15 2025 23:16:54 GMT+0700 (Indochina Time)
+    //GMT+0700 (Indochina Time): time zone
+
+    console.log(now.getTime()); //timeStamp: 1739636417607 - miliseconds
+    console.log(new Date(0)); //epoch-time: Thu Jan 01 1970 07:00:00 GMT+0700 (Indochina Time)
+
+    //4 cách dùng new Date
+    // new Date()→ In ra ngày giờ hiện tại 
+    // new Date(timestamp) → dựa vào timestamp để in ra ngày giờ 
+    // new Date(date string) → 
+    // new Date(year, month, day, hours, minutes, seconds, miliseconds)
+    console.log(new Date("Sat Feb 15 2025 23:16:54 GMT+0700 (Indochina Time)"));
+    console.log(new Date(2023, 1, 16, 10, 10, 10, 10)); //month tính từ 0
+
+    //get
+    console.log(`
+      ${now.getFullYear()}
+      ${now.getMonth()} - month: 0-11
+      ${now.getDate()} - date: 1-15
+      ${now.getDay()} - day: 0-6
+      ${now.getHours()}
+      ${now.getMinutes()}
+      ${now.getSeconds()}
+      ${now.getMilliseconds()}
+    `);
+
+    //set ~ get
+
+    //Date String
+    console.log(now.toDateString());// "Sat Feb 15 2025"
+    console.log(now.toTimeString()); // "23:37:09 GMT+0700 (Indochina Time)"
+    console.log(now.toLocaleDateString()); //"2/15/2025"
+    console.log(now.toLocaleDateString("vi")); //"15/2/2025"
+    console.log(now.toISOString()); //2025-02-15T16:38:26.829Z
+
+    //setTimeout
+    setTimeout(() => {
+      console.log("setTimeout");
+    }, 3000);
+
+    //setInterval
+    const interval = setInterval(() => {
+      console.log("setInterval");
+    }, 2000);
+
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 10000);
+
+    // 1. Viết chương trình nhập vào năm sinh và in ra số tuổi 
+
+    // 2. Đồng hồ countdown
+    
+    // 3. Viết hàm tính khoảng cách giữa 2 mốc thời gian
+    //Hàm truyền vào 2 mốc thời gian, in ra khoảng cách : ?năm, ?tháng, ?ngày, ?giờ, ?phút
+
+
+
+  </script>
+</body>
+
+</html>

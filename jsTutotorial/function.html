@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //Function Declaration: bị hoisting
+    console.log(sum(1));
+    function sum(a, b = 2) {
+      return a + b;
+    }
+
+    //function expression: không bị hoisting
+    const subF = function (a, b) {
+      return a - b;
+    }
+    console.log(subF(3, 4));
+
+    //IIFE (Immediately Invoked Function Expression)
+    (function () {
+      console.log("IIFE (Immediately Invoked Function Expression)");
+    })();
+
+    //global scope, function scope, block scope
+    const a = 10; //global scope
+    const func = function () {
+      // function scope
+    }
+    if (true) {
+      // block scope 
+      var b = 100;
+    }
+    console.log(b);// var ở trong block scope nhưng vẫn console.log bên ngoài được
+
+    //closure: Closure là một hàm có thể ghi nhớ và truy cập biến trong phạm vi của nó 
+    //ngay cả khi hàm đã được thực thi xong.
+    const func1 = function () {
+      const a = 10;
+      const funct1_child = function () {
+        return a; //closure có thể ghi nhớ biến a
+      }
+      return funct1_child;
+    }
+    console.log(func1()());
+
+    //Callback function
+    // Callback là một hàm được truyền vào một hàm khác như một 
+    // đối số và được gọi sau khi một công việc nào đó hoàn thành.
+    function f1(a,b,f2){
+      console.log(a);
+      f2(b);
+    }
+    function f2(x){
+      console.log(x);
+    }
+    f1(1,2,f2);
+
+    //arrow function
+    const arrowF = (a)=>a;
+    console.log(arrowF(12));
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //-----------------------------
+    const num1 = 123, num2 = 1.2334545;
+    const str1 = "456", str2 = "4.56";
+
+    // + - * / %
+    console.log(typeof num1);
+    console.log(parseInt(str1));
+    console.log(parseFloat(str2));
+    console.log(Math.abs(-num1));
+    console.log(Math.floor(num2)); // down
+    console.log(Math.ceil(num2)); //up
+    console.log(Math.round(1.49)); //nearest
+    console.log(parseFloat(num2.toFixed(3)));
+    console.log(Math.round(Math.random()*100));
+    console.log(Math.pow(3,2));
+    console.log(Math.max(1,2,4)); //Math.min
+    console.log(isNaN("string"));
+    console.log(isNaN("123.34")); //chuyển 123.34 thành số trc rồi ms kiểm tra
+    console.log(Number.isNaN(NaN)); // check có phải là NaN ko
+
+    //undefined: Khai báo nhưng chưa gắn giá trị
+    //null
+    //Boolean
+    //falsy values: "", 0, false, undefined, null
+    //truthy values: not falsy values
+
+    //Number()----------
+    console.log(Number("3123.5"));
+    console.log(Number(false));
+    console.log(Number.isNaN(Number("afsd")));
+
+    //Boolean()----------
+
+    // type coercion
+    console.log("5"+5);
+    console.log("5"-3);
+    console.log("5"*3);
+
+    //operator
+    // > < >= <=
+    // ! || &&
+    // = == !== ====
+    console.log(1=="01");
+    console.log(1==="01");
+    console.log(1==true);
+    console.log(1===true);
+
+  </script>
+</body>
+</html>

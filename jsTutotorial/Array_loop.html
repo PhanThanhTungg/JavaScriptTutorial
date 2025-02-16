@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Array
+    const arr = [1,"2", null, undefined, NaN, true,[1,2,"string"]];
+    console.log(arr);
+    console.log(arr.length);
+    console.log(arr.reverse()); 
+    console.log(arr.join("/"));
+    console.log(arr.includes(1));
+    console.log(arr.indexOf(1));
+    console.log(arr.lastIndexOf(1));
+    
+    arr.push("push");arr.unshift("unshift");
+    console.log(arr);
+    arr.pop(); arr.shift();
+    console.log(arr);
+    
+    //slice
+    const arr1 = arr.slice(0,4); //Tạo 1 bản copy
+    const arr1_spread = [...arr]; //spread opertor
+    arr.push("4");
+    console.log(arr1);
+    console.log(arr1_spread);
+    
+    //splice
+    const arr2 = arr.slice();
+    console.log(arr2);
+    const arr3 = arr2.splice(2,4,"a1", "a2");
+    console.log(arr3);
+    console.log(arr2);
+
+    //sort
+    const arrSort1 = [1,2,3,20,4];
+    const arrSort2 = arrSort1.slice();
+    arrSort1.sort(); //sort theo unicode-16
+    console.log(arrSort1);
+    arrSort2.sort((a,b)=> b-a);
+    console.log(arrSort2);
+
+    //find, findIndex
+    const arrFind = [1,2,3,4,5];
+    const val = arrFind.find(num=>num>2); //ko tim thay => undefined
+    console.log(val);
+    const index = arrFind.findIndex(num=>num>2);
+    console.log(index); //ko tim thay => -1
+
+    //map
+    const arrMap = [1,2,3];
+    const newArrMap = arrMap.map((val,i,arr)=>{
+      return val*2;
+    })
+    console.log(newArrMap);
+
+    //forEach
+    const arrForEach = [3,4,5];
+    arrForEach.forEach((val,i,arr)=>{
+      console.log(val);
+      arr[i] = 5;
+    })
+    console.log(arrForEach);
+
+    //filter
+    const arrFilter = [1,2,3,4];
+    const oddNum = arrFilter.filter(val=>val%2==1);
+    console.log(oddNum);
+
+    //some,every
+    const soEvArr = [-1,-2,1,4];
+    const checkSome = soEvArr.some(val=>val<0);
+    console.log(checkSome);
+    const checkEvery = soEvArr.every(val=>val<0);
+    console.log(checkEvery);
+
+    //reduce
+    const reduceArr = [10,20,30,40];
+    const avg = reduceArr.reduce((val1,val2)=>val1+val2/reduceArr.length,0);
+    console.log(avg);
+
+    //concat
+    const ar1 = [1,2], ar2=[3,4], ar3=[5,6];
+    const ar4 = ar1.concat(ar3,ar2);
+    const ar5 = [...ar1, ...ar2, ...ar3];
+    console.log(ar4); 
+    console.log(ar5);
+
+    //by values - so sánh giá trị thực tế, by reference - kiểm tra địa chỉ tham chiếu trong bộ nhớ
+    const a = 1, b = 1;
+    console.log(a===b);
+    const arrA=[2,3], arrB=[2,3];
+    console.log(arrA===arrB);
+    console.log(JSON.stringify(arrA)===JSON.stringify(arrB));
+
+    //spread operator
+    //-sao chép mảng, gộp mảng, thêm phần tử vào mảng
+    const spreadArr = [3,4];
+    console.log([1,...spreadArr,5]);
+    //-function
+    const test = ((a,b,c)=>a+b+c);
+    const c = [1,2,3];
+    console.log(test(...c));
+
+    const test2 = ((a,...pars)=>{
+      return [a,...pars];
+    })
+    console.log(test2(1,2,3,4));
+    //-string
+    const str="abcd";
+    console.log([...str]);
+
+
+    //destructuring
+    const desArr1=[1,2,3,4];
+    const [a1,b1] = desArr1;
+    console.log(a1,b1);
+
+    const [a2,,,b2] = desArr1;
+    console.log(a2,b2);
+
+    const [a3,...rest] = desArr1;
+    console.log(rest);
+
+    //loop: for, while, do while
+    for(const i of [1,2,3]) console.log(i);
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
