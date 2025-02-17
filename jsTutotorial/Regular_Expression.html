@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 2 kiểu khai báo
+    const reg1 = /reg1/;
+    const reg2 = new RegExp("reg2");
+    
+    //check chứa chuối
+    console.log(reg1.test("this's reg1"));
+    console.log(reg1.test("none"));
+
+    //Anchor
+    console.log(/reg$/.test("this is reg")); //~ endWith
+    console.log(/^reg/.test("reg ne")); //~startWith
+
+    //Ranges
+    //[a-z] [A-Z] [0-9] [a-zA-Z0-9]
+    console.log(/[a-z]/.test("abcA")); //chỉ cần có 1 kí tự thỏa mãn [a-z] là đc
+    console.log(/[a-z]/.test("ABC")); // false 
+    console.log(/[a-zA-Z]/.test("a"));
+    //negative
+    console.log(/[^a-z]/.test("aA")); //chỉ cần có 1 kí tự không thuộc [a-z] là đc
+
+    //Meta characters
+    console.log(/\d/.test("12A")); // ~[0-9]
+    console.log(/\D/.test("az9")); // ~[^0-9]
+    console.log(/\w/.test("_")); // ~[a-zA-Z0-9_]
+    console.log(/\W/.test("_")); // ~[^a-zA-Z0-9_]
+    console.log(/\s/.test(``)); // khoảng trắng, tab, newline
+    console.log(/\S/.test(``)); // ^ khoảng trắng, tab, newline
+    console.log(/\n/.test(`a
+                          b`)); // newline
+    console.log(/\t/.test("a	b")); //tab ~ a\tb
+    console.log(/./.test(`@`)); // all except newline
+    console.log(/[^]/.test(" ")); // all
+
+    //quantifiers
+    // {quantity}: lấy số lượng
+    // {bg, end}: lấy từ bg -> end
+    // +: lấy full kí tự thỏa mãn
+    // ?: có thể có hoặc không có
+    // *: khong co hoac la nhieu 
+    const str = " password 123 la 1232456";
+    console.log(str.match(/\d/)); 
+    console.log(str.match(/\d/)[0]); 
+    console.log(str.match(/\d\d\d/)[0]); 
+    console.log(str.match(/\d{2}/)[0]); // string dau tien co dung 2 ki tu lien tiep
+    console.log(str.match(/\d{4,5}/)[0]); // string dau tien co so ki tu lien tiep tu 4->5 ki tu
+    console.log(str.match(/\d+/)[0]);
+    //flag: g:global-lấy tất, i: case insentitive-không phân biệt hoa thường, 
+    // m: multiple lines
+    console.log(str.match(/\d/g));
+    console.log(str.match(/\d+/g));
+    const str2 = "toi la tung hay tug";
+    console.log(str2.match(/tun?g/g));
+    console.log(str.match(/\d*/g));
+    
+    //groups ()
+    console.log(/(\d{3})(\s)/.test("4234"));
+    console.log(/(\d{3})(\s)/.test(" a4234 "));
+
+    //escaping \ / [ ] { } ( ) ? + * | . ^ $
+    console.log(/t\?/.test("what?"));
+
+    //Boundaries \b \B
+    // \b: phải đứng độc lập
+    // \B: phải bị dính từ
+    console.log("toi la tung".match(/\btung/)[0]); //tung
+    console.log("toi la rtung".match(/\btung/)); //null
+    console.log("toi la rtung".match(/\Btung/)[0]); //tung
+    console.log("toi la tung".match(/\Btung/)); //null
+
+    //replace with regex
+    //replace bth thi chi replace duoc cai dau tien
+    let str4 = "tui tung456 la tung2313";
+    str4 = str4.replace(/tung\d+/g, "new");
+    console.log(str4);
+    
+
+    //https://regex101.com/
+
+
+
+
+
+
+    
+
+
+  </script>
+</body>
+</html>

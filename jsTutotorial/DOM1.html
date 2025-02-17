@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 name="h1Tag">h1taffaf</h1>
+  
+  <div class="text-content">
+    123
+    <div class="text-content__child" style="display: none">
+      456 <b>789</b>
+    </div>
+    101112
+  </div>
+
+  <h3>
+    <p>h3 tag</p>
+  </h3>
+
+  <hr>
+
+  <div class="parent">
+    <div class="child1">child1</div>
+    <div class="child2">child2</div>
+    <div class="child3">child3</div>
+  </div>
+
+
+
+
+  <script>
+    //DOM: document object model
+    //DOM attribute, DOM node
+
+    //node, element
+      // Node là đơn vị cơ bản trong cây DOM.
+        // Mọi thứ trong DOM đều là một Node.
+          // Element Node (Thẻ HTML: <div>, <p>, <span>…)
+          // Text Node (Nội dung văn bản trong thẻ)
+          // Comment Node (Chú thích <!-- Comment -->)
+          // Document Node (Toàn bộ tài liệu document)
+      // Element là một loại cụ thể của Node, dùng để đại diện cho các thẻ HTML.
+
+    // querySelector
+    // querySelectorAll: return nodeList ~ array có thể loop, forEach, of nhưng ko thể (push, pop, shift,unshift,...)
+    // document.getElementById, document.getElementsByClassName, document.getElementsByTagName
+    const h1Tag = document.querySelector("h1");
+    console.log(h1Tag.getAttribute("name"));
+
+    h1Tag.setAttribute("new","newValue");
+
+    h1Tag.removeAttribute("new");
+
+    console.log(h1Tag.hasAttribute("new"));
+
+    //text content, innerText. innerHTML
+    const textContent = document.querySelector(".text-content");
+    console.log(textContent.textContent);
+    console.log(textContent.innerText);
+    console.log(textContent.innerHTML);
+    // textContent.innerHTML = "<strong>123</strong>"
+
+    //classList
+    //.classList.add, .classList.remove, .classList.contains(TF)
+    //.classList.toggle
+
+    //className
+    console.log(textContent.className);
+    // textContent.className = "class1 class2 class3";
+
+    //Ex: toggle menu
+
+    // createElement, appendChild
+    const newDiv = document.createElement("div");
+    newDiv.innerHTML = "<b>newDiv</b>";
+    newDiv.className = "class1 class2";
+    newDiv.setAttribute("name", "newDiv");
+    textContent.appendChild(newDiv);
+
+    //createTextNode: tao text
+    const textNode = document.createTextNode("text-node");
+    newDiv.appendChild(textNode);
+
+    //cloneNode
+    const newDivClone = newDiv.cloneNode(true);// Nếu không truyền true thì copy mỗi tag, k có nội dung
+    newDiv.appendChild(newDivClone);
+
+    //hasChildNodes
+    console.log(document.querySelector("h1").hasChildNodes());
+
+    //insertAdjacentText
+    const h3Tag = document.querySelector("h3");
+    h3Tag.insertAdjacentText("afterbegin", "afterbeginText");
+    h3Tag.insertAdjacentText("afterend", "afterendText");
+    h3Tag.insertAdjacentText("beforebegin", "beforebeginText");
+    h3Tag.insertAdjacentText("beforeend", "beforeendText");
+
+    //insertAdjacentElement
+    const subTitle = document.createElement("p");
+    subTitle.innerHTML = "subTitle";
+    h3Tag.insertAdjacentElement("beforebegin", subTitle);
+
+    //insertAdjacentHTML
+    const subTitle2 = `<b>subTitle2</b>`;
+    h3Tag.insertAdjacentHTML("afterbegin", subTitle2);
+
+    //traversing DOM
+    
+    //parentNode, parentElement
+    const child1 = document.querySelector(".child1");
+    console.log(child1.parentElement);
+    console.log(child1.parentNode);
+
+    //removeChild
+    // child1.parentElement.removeChild(child1);
+
+    //nextElementSibling, previousElementSibling
+    console.log(child1.nextElementSibling);
+    const child3 = document.querySelector(".child3");
+    console.log(child3.previousElementSibling);
+    
+    //nextSibling, previousSibling
+    console.log(child1.nextSibling);
+    console.log(child3.previousSibling);
+
+    //childNodes, children
+    const parent = document.querySelector(".parent");
+    console.log(parent.childNodes); //=> nodeList, co the truyen index
+    console.log(parent.children); //=> HTML collection, co the truyen index
+
+    //firstChild, firstElementChild
+    console.log(parent.firstChild); //first child node
+    console.log(parent.firstElementChild); //first child element
+
+    //lastChild, lastElementChild
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+</body>
+</html>
