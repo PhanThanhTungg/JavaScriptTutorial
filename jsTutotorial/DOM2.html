@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <!-- <meta charset="UTF-8"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
@@ -15,7 +15,7 @@
       height: 120px;
       background-color: black;
       margin: 10px 20px;
-      border: 5px solid gray;
+      border: 15px solid gray;
     }
   </style>
   <div class="box1"></div>
@@ -31,6 +31,26 @@
     console.log(box1.clientHeight); //chieu cao cua phan tu, k tinh border
     console.log(box1.clientLeft); // do rong cua border ben trai
     console.log(box1.clientTop); // do rong cua border ben phai
+
+    console.log(window.innerHeight);
+    console.log(window.outerHeight);
+    console.log(window.innerWidth);
+    console.log(window.outerWidth);
+
+    console.log(box1.getBoundingClientRect());
+    // left, x: vị trí của khối so với bên trái 
+    // top: vị trí của khối so với phía trên 
+    // bottom: chiều cao của khối + top 
+    // right: độ rộng của khối + left 
+    // width: độ rộng 
+    // height: chiều cao
+
+    console.log(document.title);
+    document.title = "tung";
+    console.log(document.head);
+    const metaTag = document.createElement("meta");
+    metaTag.setAttribute("charset", "UTF-8");
+    document.head.appendChild(metaTag);
 
 
   </script>

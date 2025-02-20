@@ -46,6 +46,7 @@
 
     // querySelector
     // querySelectorAll: return nodeList ~ array có thể loop, forEach, of nhưng ko thể (push, pop, shift,unshift,...)
+    //HTML collection ko thể forEach, fix bằng spread operator
     // document.getElementById, document.getElementsByClassName, document.getElementsByTagName
     const h1Tag = document.querySelector("h1");
     console.log(h1Tag.getAttribute("name"));
@@ -90,7 +91,8 @@
 
     //hasChildNodes
     console.log(document.querySelector("h1").hasChildNodes());
-
+    
+    //Nếu dùng insert với những tag có sẵn thì sẽ di chuyển tag, chứ không copy
     //insertAdjacentText
     const h3Tag = document.querySelector("h3");
     h3Tag.insertAdjacentText("afterbegin", "afterbeginText");
@@ -113,9 +115,20 @@
     const child1 = document.querySelector(".child1");
     console.log(child1.parentElement);
     console.log(child1.parentNode);
+    //parentElement có thể null còn parentNode thì không
+    console.log(document.documentElement); //=> return thẻ HTML
+    console.log(document.documentElement.parentElement); //=> Null
+    console.log(document.documentElement.parentNode); //=> return chính nó
+    
 
     //removeChild
     // child1.parentElement.removeChild(child1);
+
+    //replaceChild
+    const parentTag = document.querySelector(".parent");
+    const divTag = document.createElement("div");
+    divTag.textContent = "child3-new";
+    parentTag.replaceChild(divTag, parentTag.querySelector(".child3"));
 
     //nextElementSibling, previousElementSibling
     console.log(child1.nextElementSibling);
@@ -136,6 +149,8 @@
     console.log(parent.firstElementChild); //first child element
 
     //lastChild, lastElementChild
+
+
 
 
 

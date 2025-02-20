@@ -7,37 +7,41 @@
 </head>
 <body>
   <script>
+    // Biểu thức chính quy
     // 2 kiểu khai báo
-    const reg1 = /reg1/;
+    const reg1 = /tung/;
     const reg2 = new RegExp("reg2");
     
-    //check chứa chuối
-    console.log(reg1.test("this's reg1"));
+    //check chứa chuối - test
+    console.log(reg1.test("this's tung"));
     console.log(reg1.test("none"));
 
     //Anchor
-    console.log(/reg$/.test("this is reg")); //~ endWith
-    console.log(/^reg/.test("reg ne")); //~startWith
+    console.log(/tung$/.test("this is tung")); //~ endWith
+    console.log(/^tung/.test("tung ne")); //~startWith
 
     //Ranges
     //[a-z] [A-Z] [0-9] [a-zA-Z0-9]
-    console.log(/[a-z]/.test("abcA")); //chỉ cần có 1 kí tự thỏa mãn [a-z] là đc
-    console.log(/[a-z]/.test("ABC")); // false 
-    console.log(/[a-zA-Z]/.test("a"));
+    console.log(/[a-z]/.test("ABC123123a")); //chỉ cần có 1 kí tự thỏa mãn [a-z] là đc
+    console.log(/[A-Z]/.test("ABC")); // true
+    console.log(/[a-zA-Z]/.test("334324"));
+    console.log(/[a-z]_@/.test("432432a_@fdfa"));
+    console.log(/[a-z_@]/.test("12321@"));
+
     //negative
     console.log(/[^a-z]/.test("aA")); //chỉ cần có 1 kí tự không thuộc [a-z] là đc
 
     //Meta characters
     console.log(/\d/.test("12A")); // ~[0-9]
-    console.log(/\D/.test("az9")); // ~[^0-9]
+    console.log(/\D/.test("8709809")); // ~[^0-9]
     console.log(/\w/.test("_")); // ~[a-zA-Z0-9_]
-    console.log(/\W/.test("_")); // ~[^a-zA-Z0-9_]
-    console.log(/\s/.test(``)); // khoảng trắng, tab, newline
-    console.log(/\S/.test(``)); // ^ khoảng trắng, tab, newline
+    console.log(/\W/.test("@#$")); // ~[^a-zA-Z0-9_]
+    console.log(/\s/.test(`hhffa fakf`)); // khoảng trắng, tab, newline
+    console.log(/\S/.test(`fdsa`)); // ^ khoảng trắng, tab, newline
     console.log(/\n/.test(`a
                           b`)); // newline
     console.log(/\t/.test("a	b")); //tab ~ a\tb
-    console.log(/./.test(`@`)); // all except newline
+    console.log(/./.test(``)); // all except newline
     console.log(/[^]/.test(" ")); // all
 
     //quantifiers
@@ -50,8 +54,8 @@
     console.log(str.match(/\d/)); 
     console.log(str.match(/\d/)[0]); 
     console.log(str.match(/\d\d\d/)[0]); 
-    console.log(str.match(/\d{2}/)[0]); // string dau tien co dung 2 ki tu lien tiep
-    console.log(str.match(/\d{4,5}/)[0]); // string dau tien co so ki tu lien tiep tu 4->5 ki tu
+    console.log(str.match(/\d{2}/)[0]); // string dau tien co dung 2 ki tu so lien tiep
+    console.log(str.match(/\d{4,6}/)[0]); // string dau tien co so ki tu lien tiep tu 4->5 ki tu
     console.log(str.match(/\d+/)[0]);
     //flag: g:global-lấy tất, i: case insentitive-không phân biệt hoa thường, 
     // m: multiple lines
@@ -64,9 +68,11 @@
     //groups ()
     console.log(/(\d{3})(\s)/.test("4234"));
     console.log(/(\d{3})(\s)/.test(" a4234 "));
+    const str3 = "toi la 12345 "
+    console.log(str3.match(/(\d{3})(\s)/)[0]);
 
     //escaping \ / [ ] { } ( ) ? + * | . ^ $
-    console.log(/t\?/.test("what?"));
+    console.log(/t\?a/.test("what?a"));
 
     //Boundaries \b \B
     // \b: phải đứng độc lập
@@ -80,11 +86,12 @@
     //replace bth thi chi replace duoc cai dau tien
     let str4 = "tui tung456 la tung2313";
     str4 = str4.replace(/tung\d+/g, "new");
-    console.log(str4);
+    console.log(str4); //tui new la new
     
 
     //https://regex101.com/
 
+    
 
 
 

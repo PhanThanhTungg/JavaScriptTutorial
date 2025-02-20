@@ -8,9 +8,9 @@
 <body>
   <script>
     //-----------------------------
-    const str1 = "double quotes";
-    const str2 = "single quotes";
-    const str3 = "backticks";
+    const str1 = " double quotes ";
+    const str2 = 'single quotes';
+    const str3 = `backticks`;
 
     //-----------------------------
     console.log(typeof str1);
@@ -26,12 +26,12 @@
     console.log(str1.startsWith("doub"));
     console.log(str1.endsWith("est"));
     console.log(str1.includes("ble"));
-    console.log(str1.indexOf("o")); // first
+    console.log(str1.indexOf("ou")); // first
     console.log(str1.lastIndexOf("o"));
     console.log(str1.replace("o", "new")); //first
     console.log(str1.replaceAll("o", "new"));
     console.log(str1.repeat(3));
-    console.log(str1.slice(0,-1));
+    console.log(str1.slice(0,-1)); //slice(a,b) -> a den b-1
     console.log(str1.trim());
     console.log(str1.trimStart());
     console.log(str1.trimEnd());
@@ -44,6 +44,7 @@
 
     //String(val)---------------
     //Chuyển val thành String kể cả null, NaN, undefined
+    
     
 
   </script>
